@@ -40,9 +40,14 @@ describe("MattTodo", function() {
     expect(todo.yearActionStatus).toBeDefined();
   });
 
-  it("returns a css class for statuses ", function() {
+  it("returns a css class for statuses, action statuses, name etc", function() {
     todo.status = "Yellow";
-    expect(todo.statusCssClass).toBe("StatusYellow");
+    expect(todo.statusCssClass).toBe("MattStatusYellow");
+    todo.dayActionStatus = "Yellow";
+    expect(todo.dayActionStatusCssClass).toBe("MattActionStatusYellow");
+    expect(todo.nameCssClass).toBe("MattName");
+    todo.weekActionStatus = "Yellow";
+    expect(todo.weekActionStatusCssClass).toBe("MattActionStatusYellow");
   });
 
 });

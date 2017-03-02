@@ -2,7 +2,7 @@ import {MattTodo, MattStatus} from "./todo"
 import {MattModel} from "./mattmodel"
 import {MattTodoListSample} from "./todolistsample"
 
-let todolist: MattModel;
+let mattModel: MattModel;
 
 describe("MattModel", function() {
 
@@ -10,19 +10,24 @@ describe("MattModel", function() {
   });
 
   it("can be created", function() {
-    todolist = new MattModel([]);
-    expect(todolist).toBeDefined();
+    mattModel = new MattModel([]);
+    expect(mattModel).toBeDefined();
   });
 
   it("it can receive data in constructor", function() {
-    todolist = new MattModel(MattTodoListSample);
-    expect(todolist).toBeDefined();
+    mattModel = new MattModel(MattTodoListSample);
+    expect(mattModel).toBeDefined();
   });
 
   it("it returns the list of all allTodos", function() {
-    todolist = new MattModel(MattTodoListSample);
-    expect(todolist.allTodos).toBeDefined();
-    expect(todolist.allTodos.length).toBe(MattTodoListSample.length);
+    mattModel = new MattModel(MattTodoListSample);
+    expect(mattModel.allTodos).toBeDefined();
+    expect(mattModel.allTodos.length).toBe(MattTodoListSample.length);
+  });
+
+  it("it has a notion of current time frame (day,week,season,year)", function() {
+    mattModel = new MattModel(MattTodoListSample);
+    expect(mattModel.timeFrame).toBeDefined();
   });
 
 });
